@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="blogApp">
+<head>
+    <meta charset="utf8">
+    <script src="js/angular.min.js"></script>
+    <script src="js/blog.js"></script>
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+<h2>Публикация</h2>
+<div ng-controller="BlogListController as blogList">
+
+    <form ng-submit="blogList.addTodo()">
+        <input type="text" ng-model="blogList.blogText"  size="30"
+               placeholder="Текст публикации">
+        <input class="btn-primary" type="submit" value="add">
+    </form>
+    <form ng-submit="blogList.addTodo()">
+        <input type="text" ng-model="blogList.blogText"  size="30"
+               placeholder="Текст публикации">
+        <input class="btn-primary" type="submit" value="add">
+    </form>
+
+    <ul class="unstyled">
+        <li ng-repeat="blog in blogList.blogs">
+            <!--<label class="checkbox">-->
+                <span class="done-{{blog.done}}">{{blog.text}}</span>
+            <!--</label>-->
+        </li>
+    </ul>
+</div>
+</body>
+</html>
