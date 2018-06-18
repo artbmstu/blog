@@ -1,4 +1,6 @@
-.done-true {
-    text-decoration: line-through;
-    color: grey;
+input,textarea{
+    font-family: Arial, sans-serif;
+    font-size: 100%;
+    width: 52em;
+    width: 80ch;
 }

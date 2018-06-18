@@ -1,31 +1,35 @@
 <!doctype html>
 <html ng-app="blogApp">
+<meta charset="utf-8" />
 <head>
-    <meta charset="utf8">
+    <title>Блог</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/blog.css">
     <script src="js/angular.min.js"></script>
-    <script src="js/blog.js"></script>
-    <link rel="stylesheet" href="css/blog.css">
+    <script src="js/blog_controller.js"></script>
 </head>
+
 <body>
-<h2>Публикация</h2>
-<div ng-controller="BlogListController as blogList">
-
-    <form ng-submit="blogList.addTodo()">
-        <input type="text" ng-model="blogList.blogText"  size="30"
-               placeholder="Текст публикации">
-        <input class="btn-primary" type="submit" value="add">
+<div ng-controller="BlogController" style="margin-left: 20px; margin-top: 20px">
+    <form name="blogForm">
+        <fieldset>
+            <label>
+                <span>Заголовок</span><br>
+                <input name="head" ng-model="article.head" required placeholder="Введите заголовок"/>
+            </label>
+            <div style="margin-top: 10px">
+                <label>
+                    <span>Текст</span><br>
+                    <textarea name="text" ng-model="article.text" required placeholder="Введите текст" rows="10"></textarea>
+                </label>
+            </div>
+        </fieldset>
+        <p><button type="reset" ng-click="save(article)" onclick="document.getElementsByName('text').value='';">Опубликовать</button></p>
     </form>
-    <form ng-submit="blogList.addTodo()">
-        <input type="text" ng-model="blogList.blogText"  size="30"
-               placeholder="Текст публикации">
-        <input class="btn-primary" type="submit" value="add">
-    </form>
-
-    <ul class="unstyled">
-        <li ng-repeat="blog in blogList.blogs">
-            <!--<label class="checkbox">-->
-                <span class="done-{{blog.done}}">{{blog.text}}</span>
-            <!--</label>-->
+    <ul>
+        <li ng-repeat="publication in publications">
+            <p>{{$index + 1}}. ({{publication.date | date: 'MMM d, y, HH:mm:ss'}}) Заголовок: {{publication.head}}</p>
+            <p>Текст: {{publication.text}}</p>
         </li>
     </ul>
 </div>
