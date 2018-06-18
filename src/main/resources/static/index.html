@@ -15,16 +15,16 @@
         <fieldset>
             <label>
                 <span>Заголовок</span><br>
-                <input name="head" ng-model="article.head" required placeholder="Введите заголовок"/>
+                <input ng-model="article.head" required placeholder="Введите заголовок"/>
             </label>
             <div style="margin-top: 10px">
                 <label>
                     <span>Текст</span><br>
-                    <textarea name="text" ng-model="article.text" required placeholder="Введите текст" rows="10"></textarea>
+                    <textarea ng-model="article.text" required placeholder="Введите текст" rows="10"></textarea>
                 </label>
             </div>
         </fieldset>
-        <p><button type="reset" ng-click="save(article)" onclick="document.getElementsByName('text').value='';">Опубликовать</button></p>
+        <p><button type="reset" ng-click="save(article)">Опубликовать</button></p>
     </form>
     <ul>
         <li ng-repeat="publication in publications">

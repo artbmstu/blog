@@ -6,6 +6,9 @@ angular.module('blogApp', [])
             then(function(response) {
                 $scope.publications = response.data;
             });
+            article.date = '';
+            article.text = '';
+            article.head = '';
         };
         $http.get("http://localhost:8080/publications").
         then(function(response) {
